@@ -1,33 +1,117 @@
 --------------------------
 --		GENE DATA		--
 --------------------------
-/*
--- Gene table; remember to include the pfam domains and such
+
+-- Gene table 
 CREATE TABLE gene (
-);
+	dataset VARCHAR(64),
+	runid VARCHAR(64),
+	masking VARCHAR(64),
+	build VARCHAR(64),
+	chance VARCHAR(64),
+	runtime VARCHAR(64),
+	seqnum VARCHAR(64),
+	upnum VARCHAR(64),
+	aanum VARCHAR(64),
+	motnum VARCHAR(64),
+	rank VARCHAR(64),
+	sig	 VARCHAR(64),
+	fdr VARCHAR(64),
+	wtfdr VARCHAR(64),
+	seqwt VARCHAR(64),
+	pattern VARCHAR(64),
+	ic VARCHAR(64),
+	occ VARCHAR(64),
+	support VARCHAR(64),
+	up VARCHAR(64),
+	expup VARCHAR(64),
+	prob VARCHAR(64),
+	cloud VARCHAR(64),
+	cloudseq VARCHAR(64),
+	cloudup VARCHAR(64),
+	consmean VARCHAR(64),
+	homnummean VARCHAR(64),
+	globidmean VARCHAR(64),
+	locidmean VARCHAR(64),
+	hydmean VARCHAR(64),
+	iupmean VARCHAR(64),
+	samean VARCHAR(64),
+	original VARCHAR(64),
+	dtype VARCHAR(64),
+	hub VARCHAR(64),
+	ppiset VARCHAR(64),
+	annotation VARCHAR(64),
+	class VARCHAR(64),
+	elm VARCHAR(64),
+	bestelm VARCHAR(64),
+	elmsim VARCHAR(64),
+	elmpattern VARCHAR(64),
+	score VARCHAR(64),
+	matched VARCHAR(64),
+	matchic VARCHAR(64),
+	kcloud VARCHAR(64),
+	dcloud VARCHAR(64),
+	analysis VARCHAR(64),
+	PRIMARY_KEY (dataset, pattern, rank)
+); 
 
-
-CREATE TABLE gene_protein_interactions (
-	-- Interactions
-	gene_name VARCHAR(32),
-	domain_name VARCHAR(64),
-	interacting_hubs VARCHAR(128)[],
-	evidence VARCHAR(256),
-	-- Hub SLiMs
-	ppi VARCHAR(32),
-	y2h VARCHAR(32),
-	bin VARCHAR(32),
-	com VARCHAR(32),
-	PRIMARY KEY (domain_name, gene_name)
-);
 
 --------------------------
 --		DOMAIN DATA		--
 --------------------------
 
 CREATE TABLE pfam_domain (
+	dataset VARCHAR(64),
+	runid VARCHAR(64),
+	masking VARCHAR(64),
+	build VARCHAR(64),
+	chance VARCHAR(64),
+	runtime VARCHAR(64),
+	seqnum VARCHAR(64),
+	upnum VARCHAR(64),
+	aanum VARCHAR(64),
+	motnum VARCHAR(64),
+	rank VARCHAR(64),
+	sig	 VARCHAR(64),
+	fdr VARCHAR(64),
+	wtfdr VARCHAR(64),
+	seqwt VARCHAR(64),
+	pattern VARCHAR(64),
+	ic VARCHAR(64),
+	occ VARCHAR(64),
+	support VARCHAR(64),
+	up VARCHAR(64),
+	expup VARCHAR(64),
+	prob VARCHAR(64),
+	cloud VARCHAR(64),
+	cloudseq VARCHAR(64),
+	cloudup VARCHAR(64),
+	consmean VARCHAR(64),
+	homnummean VARCHAR(64),
+	globidmean VARCHAR(64),
+	locidmean VARCHAR(64),
+	hydmean VARCHAR(64),
+	iupmean VARCHAR(64),
+	samean VARCHAR(64),
+	original VARCHAR(64),
+	dtype VARCHAR(64),
+	hub VARCHAR(64),
+	ppiset VARCHAR(64),
+	annotation VARCHAR(64),
+	class VARCHAR(64),
+	elm VARCHAR(64),
+	bestelm VARCHAR(64),
+	elmsim VARCHAR(64),
+	elmpattern VARCHAR(64),
+	score VARCHAR(64),
+	match VARCHAR(64),
+	matchic VARCHAR(64),
+	kcloud VARCHAR(64),
+	dcloud VARCHAR(64),
+	analysis VARCHAR(64),
+	PRIMARY_KEY(dataset, pattern, rank)
 );
-
+/*
 CREATE TABLE domain_protein_interactions (
 	-- Interactions
 	domain_name VARCHAR(64),
@@ -82,7 +166,6 @@ CREATE TABLE gene_pfam_domain (
 	pfam_domain_name VARCHAR(64),
 	PRIMARY KEY (gene_name, pfam_domain_name)
 );
-
 -- gene to protein
 CREATE TABLE gene_protein (
 	protein_name VARCHAR(32),
@@ -91,3 +174,4 @@ CREATE TABLE gene_protein (
 
 );
 */
+
