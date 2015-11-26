@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 
+# Adds Domain Protein Interactions data to the database
+
 import psycopg2
 import re
 
 
 try:
-	conn = psycopg2.connect(database="test", user="rayne")
+	conn = psycopg2.connect(database="slimdbtest", user="rayne")
 except:
 	print "Unable to connect to database"
 
