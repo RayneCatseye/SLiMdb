@@ -109,7 +109,7 @@ CREATE TABLE pfam_domain (
 	kcloud VARCHAR(64),
 	dcloud VARCHAR(64),
 	analysis VARCHAR(64),
-	PRIMARY_KEY(dataset, pattern, rank)
+	PRIMARY_KEY (dataset, pattern, rank)
 );
 /*
 CREATE TABLE domain_protein_interactions (
