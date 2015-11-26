@@ -52,7 +52,7 @@ CREATE TABLE gene (
 	kcloud VARCHAR(64),
 	dcloud VARCHAR(64),
 	analysis VARCHAR(64),
-	PRIMARY_KEY (dataset, pattern, rank)
+	PRIMARY KEY (dataset, pattern, rank)
 ); 
 
 
@@ -109,23 +109,10 @@ CREATE TABLE pfam_domain (
 	kcloud VARCHAR(64),
 	dcloud VARCHAR(64),
 	analysis VARCHAR(64),
-	PRIMARY_KEY (dataset, pattern, rank)
+	PRIMARY KEY (dataset, pattern, rank)
 );
-/*
-CREATE TABLE domain_protein_interactions (
-	-- Interactions
-	domain_name VARCHAR(64),
-	gene_name VARCHAR(64),
-	interacting_hubs VARCHAR(128)[],
-	evidence VARCHAR(256)[],
-	-- Hub SLiMs
-	ppi VARCHAR(32),
-	y2h VARCHAR(32),
-	bin VARCHAR(32),
-	com VARCHAR(32),
-	PRIMARY KEY (domain_name, gene_name)
-);
-*/
+
+
 ------------------------------
 --		PATTERN DATA		--
 ------------------------------
@@ -159,13 +146,14 @@ CREATE TABLE occresults (
 ----------------------------------
 --		INTERACTION DATA		--
 ----------------------------------
-/*
+
 -- interaction table between the gene and pfam_domain tables
 CREATE TABLE gene_pfam_domain (
 	gene_name VARCHAR(32),
 	pfam_domain_name VARCHAR(64),
 	PRIMARY KEY (gene_name, pfam_domain_name)
 );
+/*
 -- gene to protein
 CREATE TABLE gene_protein (
 	protein_name VARCHAR(32),
@@ -174,4 +162,18 @@ CREATE TABLE gene_protein (
 
 );
 */
+
+CREATE TABLE domain_protein_interactions (
+	-- Interactions
+	domain_name VARCHAR(64),
+	gene_name VARCHAR(64),
+	interacting_hubs VARCHAR(128)[],
+	evidence VARCHAR(256)[],
+	-- Hub SLiMs
+	ppi VARCHAR(32),
+	y2h VARCHAR(32),
+	bin VARCHAR(32),
+	com VARCHAR(32),
+	PRIMARY KEY (domain_name, gene_name)
+);
 

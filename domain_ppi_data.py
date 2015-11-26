@@ -23,8 +23,17 @@ while line:
 	names = (line[1], line[2]) # names
 	evidence = line[5]
 	evidence = list(re.split(r'\|', evidence))	
-	print interactions
+	# First, put the domain protein interaction table together as a whole
 	cur.execute("""INSERT INTO domain_protein_interactions (domain_name, gene_name, evidence, ppi, y2h, bin, com, interacting_hubs) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""", (line[0], '|'.join(names), evidence, line[6], line[7], line[8], line[9], interactions))
+	conn.commit()
+
+	# Now add the pure interaction table between domains and proteins
+	for i in interactions:
+		cur.execute("""SELECT COUNT(*) FROM gene_pfam_domain WHERE gene_name='%s' AND pfam_domain_name='%s'""" % (i, line[0]))
+		n = len(cur.fetchall())
+		if not n:
+			cur.execute("""INSERT INTO gene_pfam_domain VALUES (%s, %s)""", (i, line[0]))
+
 	line = f.readline()
 
 conn.commit()
