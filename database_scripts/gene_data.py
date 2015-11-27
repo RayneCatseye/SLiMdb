@@ -13,7 +13,7 @@ except:
 
 cur = conn.cursor()
 
-f = open('MainData/ens_HUMAN.loci.fas', 'r')
+f = open('../datasets/MainData/ens_HUMAN.loci.fas', 'r')
 
 line = f.readline()
 while line:

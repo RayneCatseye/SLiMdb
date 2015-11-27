@@ -13,7 +13,7 @@ except:
 
 cur = conn.cursor()
 
-f = open('MainData/humsf09_slimfinder.full.csv', 'r')
+f = open('../datasets/MainData/humsf09_slimfinder.full.csv', 'r')
 
 reader = csv.reader(f, delimiter=',', quotechar='"')
 for line in reader:

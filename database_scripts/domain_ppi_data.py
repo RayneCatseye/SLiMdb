@@ -13,7 +13,7 @@ except:
 
 cur = conn.cursor()
 
-f = open('MainData/humsf09.domain_ppi.090505.tdt', 'r')
+f = open('../datasets/MainData/humsf09.domain_ppi.090505.tdt', 'r')
 
 line = f.readline()
 line = f.readline()
