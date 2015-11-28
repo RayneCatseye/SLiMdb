@@ -20,7 +20,10 @@ def main(argv):
         sys.exit(1)
 
     domain_ppi.load(conn, "datasets/MainData/humsf09.domain_ppi.090505.tdt")
-    gene_protein.load(conn, "datasets/MainData/humsf09_slimfinder.occ.csv")
+
+# FIXME: not implemented
+#    gene_protein.load(conn, "datasets/MainData/humsf09_slimfinder.occ.csv")
+
     gene.load(conn, "datasets/MainData/ens_HUMAN.loci.fas")
     main_data.load(conn, "datasets/MainData/humsf09_slimfinder.full.csv")
     occ.load(conn, "datasets/MainData/humsf09_slimfinder.occ.csv")

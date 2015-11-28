@@ -10,7 +10,6 @@ def load(conn, fname):
     reader = csv.reader(f, delimiter=',', quotechar='"')
     for line in reader:
 	if line[0] != "Hub":
-            pass
 	    # Second last column of g is the Gene we're looking for
 		
 	    #print line[12]
