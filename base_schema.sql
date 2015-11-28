@@ -2,6 +2,8 @@
 --		GENE DATA		--
 --------------------------
 
+DROP TABLE IF EXISTS gene;
+
 -- Gene table 
 CREATE TABLE gene (
 	dataset VARCHAR(64),
@@ -60,6 +62,8 @@ CREATE TABLE gene (
 --		DOMAIN DATA		--
 --------------------------
 
+DROP TABLE IF EXISTS pfam_domain;
+
 CREATE TABLE pfam_domain (
 	dataset VARCHAR(64),
 	runid VARCHAR(64),
@@ -117,6 +121,8 @@ CREATE TABLE pfam_domain (
 --		PATTERN DATA		--
 ------------------------------
 
+DROP TABLE IF EXISTS occresults;
+
 CREATE TABLE occresults (
 	hub VARCHAR(64),
 	dataset VARCHAR(64),
@@ -147,13 +153,19 @@ CREATE TABLE occresults (
 --		INTERACTION DATA		--
 ----------------------------------
 
+DROP TABLE IF EXISTS gene_pfam_domain;
+
 -- interaction table between the gene and pfam_domain tables
+
 CREATE TABLE gene_pfam_domain (
 	gene_name VARCHAR(32),
 	pfam_domain_name VARCHAR(64),
 	PRIMARY KEY (gene_name, pfam_domain_name)
 );
+
 /*
+DROP TABLE IF EXISTS gene_protein;
+
 -- gene to protein
 CREATE TABLE gene_protein (
 	protein_name VARCHAR(32),
@@ -162,6 +174,8 @@ CREATE TABLE gene_protein (
 
 );
 */
+
+DROP TABLE IF EXISTS domain_protein_interactions;
 
 CREATE TABLE domain_protein_interactions (
 	-- Interactions
