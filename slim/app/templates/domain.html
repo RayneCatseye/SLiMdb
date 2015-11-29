@@ -12,11 +12,15 @@
 {% if domains %}
 <table>
   <tr>
-    <th>dataset</th>
+    {% for col in domain_cols %}
+    <th>{{ col }}</th>
+    {% endfor %}
   </tr>
-  {% for domain in domains %}
+  {% for row in domains %}
   <tr>
-    <td>{{ domain }}</td>
+    {% for col in domain_cols %}
+    <td>{{ row[col] }}</td>
+    {% endfor %}
   </tr>
   {% endfor %}
 </table>

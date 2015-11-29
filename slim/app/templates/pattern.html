@@ -12,14 +12,19 @@
 {% if patterns %}
 <table>
   <tr>
-    <th>dataset</th>
+    {% for col in pattern_cols %}
+    <th>{{ col }}</th>
+    {% endfor %}
   </tr>
-  {% for pattern in patterns %}
+  {% for row in patterns %}
   <tr>
-    <td>{{ pattern }}</td>
+    {% for col in pattern_cols %}
+    <td>{{ row[col] }}</td>
+    {% endfor %}
   </tr>
   {% endfor %}
 </table>
 {% endif %}
+
 
 {% endblock %}

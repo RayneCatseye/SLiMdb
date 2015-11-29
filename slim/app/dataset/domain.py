@@ -5,11 +5,11 @@ cols = [
     "dataset",
     "runid",
     "masking",
-    "build", 
-    "chance", 
-    "runtime", 
+    "build",
+    "chance",
+    "runtime",
     "seqnum",
-    "upnum", 
+    "upnum",
     "aanum",
     "motnum",
     "rank",
@@ -45,15 +45,15 @@ cols = [
     "elmsim",
     "elmpattern",
     "score",
-    "matched",
+    "match",
     "matchic",
     "kcloud",
     "dcloud",
-    "analysis"
+    "analysis",
 ]
 
 def search(conn, gene_name):
     cur = conn.cursor()
-    cur.execute("SELECT " + ",".join(cols) + ' FROM gene WHERE dataset LIKE %s;', (like(gene_name),))
+    cur.execute("SELECT " + ",".join(cols) + ' FROM pfam_domain WHERE dataset LIKE %s;', (like(gene_name),))
     res = cur.fetchall()
     return map(lambda r: dict(zip(cols, list(r))), res)

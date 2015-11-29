@@ -34,7 +34,11 @@ def by_domain(domain_name=None):
         if domain_name:
             pcs = { "domain_name" : path_component(domain_name) }
             return redirect(url_for("by_domain", **pcs))
-    return render_template("domain.html", domain_name=domain_name, domains=[])
+    domains = []
+    if domain_name:
+        domains = dataset.domain.search(g.db, domain_name)
+    print(domains)
+    return render_template("domain.html", domain_name=domain_name, domain_cols=dataset.domain.cols, domains=domains)
 
 # Search and display data from the `occ_results` table.
 @slimdb_app.route("/pattern", methods=["GET", "POST"])

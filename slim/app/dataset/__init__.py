@@ -1,6 +1,7 @@
 import psycopg2
 
 import gene
+import domain
 
 def connect_db(pgsql_conn):
     try:
