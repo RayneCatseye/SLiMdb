@@ -1,2 +1,3 @@
 def like(qry):
-    return '%' + qry + '%'
+    qry_ = qry.replace('%', '\%').replace('_', '\_')
+    return '%' + qry_ + '%'
