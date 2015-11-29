@@ -12,12 +12,14 @@ def load(conn, fname):
 	    line = line.split(' ', 1)
 	    name = line[0][1:]
 	    desc = line[1][:-1]
+            #print("%s // %s" % (name, desc))
+            cur.execute("""INSERT INTO human_loci (gene_name, gene_description) VALUES (%s, %s)""", (name, desc))
             #		print name, desc
 
-	    try:
-		cur.execute("""INSERT INTO gene (name, description) VALUES (%s, %s)""", (name, desc))
-	    except:
-		print ("Dupication error, oops.")
+#	    try:
+
+#	    except:
+#		print ("Dupication error, oops.")
 	line = f.readline()
 
     conn.commit()

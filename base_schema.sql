@@ -191,3 +191,12 @@ CREATE TABLE domain_protein_interactions (
 	PRIMARY KEY (domain_name, gene_name)
 );
 
+DROP TABLE IF EXISTS human_loci;
+
+CREATE TABLE human_loci(
+	gene_name VARCHAR(128),
+	gene_description VARCHAR(2048),
+    PRIMARY KEY (gene_name)
+);
+
+

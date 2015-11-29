@@ -19,13 +19,17 @@ def main(argv):
         print(e)
         sys.exit(1)
 
+    print("loading domain_ppi")
     domain_ppi.load(conn, "datasets/MainData/humsf09.domain_ppi.090505.tdt")
 
 # FIXME: not implemented
 #    gene_protein.load(conn, "datasets/MainData/humsf09_slimfinder.occ.csv")
 
+    print("loading gene")
     gene.load(conn, "datasets/MainData/ens_HUMAN.loci.fas")
+    print("loading main")
     main_data.load(conn, "datasets/MainData/humsf09_slimfinder.full.csv")
+    print("loading occ")
     occ.load(conn, "datasets/MainData/humsf09_slimfinder.occ.csv")
     conn.close()
     
