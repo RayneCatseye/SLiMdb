@@ -19,6 +19,10 @@
    createdb -E UTF-8 -T template0 -O slimdb slimdb
    ```
  - Update the database name, username and password in `slim/app/config.py`.
+ - Initialize the database schema:
+   ```
+   psql -d "dbname=slimdb user=slimdb password=..." < base_schema.sql
+   ```
  - Install the Python dependencies:
 
    ```
