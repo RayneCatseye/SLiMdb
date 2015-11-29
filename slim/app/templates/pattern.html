@@ -3,8 +3,8 @@
 
 <form action="{{ url_for('by_pattern') }}" method="POST" role="form" id="pattern_search">
   <div class="form-group">
-    <label for="pattern_name">Pattern name</label>
-    <input name="pattern_name" type="text" class="form-control" placeholder="{% if pattern_name %} {{ pattern_name }} {% else %}Pattern name{% endif %}" />
+    <label for="pattern">Pattern name</label>
+    <input name="pattern" type="text" class="form-control" placeholder="{% if pattern %} {{ pattern }} {% else %}Pattern{% endif %}" />
   </div>
   <button type="submit" class="btn btn-default">Search</button>
 </form>

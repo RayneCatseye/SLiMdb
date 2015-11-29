@@ -37,16 +37,19 @@ def by_domain(domain_name=None):
     domains = []
     if domain_name:
         domains = dataset.domain.search(g.db, domain_name)
-    print(domains)
     return render_template("domain.html", domain_name=domain_name, domain_cols=dataset.domain.cols, domains=domains)
 
 # Search and display data from the `occ_results` table.
 @slimdb_app.route("/pattern", methods=["GET", "POST"])
-@slimdb_app.route("/pattern/<pattern_name>", methods=["GET", "POST"])
-def by_pattern(pattern_name=None):
+@slimdb_app.route("/pattern/<pattern>", methods=["GET", "POST"])
+def by_pattern(pattern=None):
     if request.method == "POST":
-        pattern_name = request.form.get("pattern_name", "").strip()
-        if pattern_name:
-            pcs = { "pattern_name" : path_component(pattern_name) }
+        pattern = request.form.get("pattern", "").strip()
+        if pattern:
+            pcs = { "pattern" : path_component(pattern) }
             return redirect(url_for("by_pattern", **pcs))
-    return render_template("pattern.html", pattern_name=pattern_name, patterns=[])
+    patterns = []
+    if pattern:
+        patterns = dataset.pattern.search(g.db, pattern)
+    return render_template("pattern.html", pattern=pattern, pattern_cols=dataset.pattern.cols, patterns=patterns)
+

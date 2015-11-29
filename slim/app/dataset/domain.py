@@ -52,8 +52,8 @@ cols = [
     "analysis",
 ]
 
-def search(conn, gene_name):
+def search(conn, domain_name):
     cur = conn.cursor()
-    cur.execute("SELECT " + ",".join(cols) + ' FROM pfam_domain WHERE dataset LIKE %s;', (like(gene_name),))
+    cur.execute("SELECT " + ",".join(cols) + ' FROM pfam_domain WHERE dataset LIKE %s;', (like(domain_name),))
     res = cur.fetchall()
     return map(lambda r: dict(zip(cols, list(r))), res)
