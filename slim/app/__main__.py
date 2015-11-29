@@ -1,3 +1,4 @@
-from slimdb import ui
+from slimdb import slimdb_app
+from routes import *
 
-ui.run(host="127.0.0.1")
+slimdb_app.run(host="127.0.0.1")
