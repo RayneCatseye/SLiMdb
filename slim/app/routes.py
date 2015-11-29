@@ -39,7 +39,7 @@ def by_domain(domain_name=None):
         domains = dataset.domain.search(g.db, domain_name)
     return render_template("domain.html", domain_name=domain_name, domain_cols=dataset.domain.cols, domains=domains)
 
-# Search and display data from the `occ_results` table.
+# Search and display data from the `occresults` table.
 @slimdb_app.route("/pattern", methods=["GET", "POST"])
 @slimdb_app.route("/pattern/<pattern>", methods=["GET", "POST"])
 def by_pattern(pattern=None):
