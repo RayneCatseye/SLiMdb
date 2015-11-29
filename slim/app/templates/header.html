@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      </button>
+      <a class="navbar-brand" href="{{ url_for('index') }}">slimdb</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav" style="list-style-type:none;">
+        <li><a href="{{ url_for('by_gene') }}">Gene</a></li>
+        <li><a href="{{ url_for('by_domain') }}">Domain</a></li>
+        <li><a href="{{ url_for('by_pattern') }}">Pattern</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

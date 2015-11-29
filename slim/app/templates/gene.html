@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %}
+<form action="#" method="POST">
+  <div class="form-group">
+    <label for="gene_name">Gene name</label>
+    <input id="gene_name" type="text" class="form-control" placeholder="{% if gene_name %} {{ gene_name }} {% else %}Gene name{% endif %}" />
+  </div>
+  <button type="submit" class="btn btn-default">Search</button>
+</form>
+
+{% if genes %}
+<table>
+  <tr>
+    <th>dataset</th>
+  </tr>
+  {% for gene in genes %}
+  <tr>
+    <td>{{ gene.dataset }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}

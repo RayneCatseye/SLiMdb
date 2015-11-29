@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %}
+<form action="#" method="POST">
+  <div class="form-group">
+    <label for="pattern_name">Pattern name</label>
+    <input id="pattern_name" type="text" class="form-control" placeholder="{% if pattern_name %} {{ pattern_name }} {% else %}Pattern name{% endif %}" />
+  </div>
+  <button type="submit" class="btn btn-default">Search</button>
+</form>
+
+{% if patterns %}
+<table>
+  <tr>
+    <th>dataset</th>
+  </tr>
+  {% for pattern in patterns %}
+  <tr>
+    <td>{{ pattern }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}

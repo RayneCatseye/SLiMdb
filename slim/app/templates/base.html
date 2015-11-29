@@ -1,17 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <title>slimdb</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <link rel="stylesheet" type="text/css" href="./static/css/bootstrap.css" />
-    </head>
-    <body>
-        <div id="content">
-            <h1>slimdb</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>slimdb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./static/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./static/css/slimdb.css" />
+  </head>
+  <body>
 
-            {% block body %}{% endblock %}
-        </div>
-
-    </body>
+    {% include 'header.html' %}
+    
+    <div id="content" class="container">
+      {% block body %}{% endblock %}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="static/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="static/js/bootstrap.min.js"></script>
+  </body>
 </html>
