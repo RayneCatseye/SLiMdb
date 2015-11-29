@@ -7,19 +7,15 @@ def load(conn, fname):
     f = open(fname, 'r')
 
     line = f.readline()
+
+    # FASTA format. We read the gene name and description and discard the
+    # sequence data.
     while line:
 	if line[0] == ">":
 	    line = line.split(' ', 1)
 	    name = line[0][1:]
 	    desc = line[1][:-1]
-            #print("%s // %s" % (name, desc))
             cur.execute("""INSERT INTO human_loci (gene_name, gene_description) VALUES (%s, %s)""", (name, desc))
-            #		print name, desc
-
-#	    try:
-
-#	    except:
-#		print ("Dupication error, oops.")
 	line = f.readline()
 
     conn.commit()
