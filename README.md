@@ -1,4 +1,4 @@
-# slimdb
+# SLiMdb
 
 # Preparation
 
@@ -34,6 +34,8 @@
 ```
 ./load_data.py "dbname=slimdb user=slimdb password=slimdb"
 ```
+
+This will take about 45 minutes, because the datasets are large. Dont worry if it sits there for a while!
 
 # Running the web application
 
