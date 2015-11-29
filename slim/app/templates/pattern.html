@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+
+<form action="{{ url_for('by_pattern') }}" method="POST" role="form" id="pattern_search">
+  <div class="form-group">
+    <label for="pattern">Pattern name</label>
+    <input name="pattern" type="text" class="form-control" placeholder="{% if pattern %} {{ pattern }} {% else %}Pattern{% endif %}" />
+  </div>
+  <button type="submit" class="btn btn-default">Search</button>
+</form>
+
+{% if patterns %}
+<table class="table table-striped">
+  <tr>
+    {% for col in pattern_cols %}
+    <th>{{ col }}</th>
+    {% endfor %}
+  </tr>
+  {% for row in patterns %}
+  <tr>
+    {% for col in pattern_cols %}
+    <td>{{ row[col] }}</td>
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+
+{% endblock %}
