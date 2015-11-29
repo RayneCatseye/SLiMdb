@@ -11,11 +11,15 @@
 {% if genes %}
 <table>
   <tr>
-    <th>dataset</th>
+    {% for col in gene_cols %}
+    <th>{{ col }}</th>
+    {% endfor %}
   </tr>
-  {% for gene in genes %}
+  {% for row in genes %}
   <tr>
-    <td>{{ gene.dataset }}</td>
+    {% for col in gene_cols %}
+    <td>{{ row[col] }}</td>
+    {% endfor %}
   </tr>
   {% endfor %}
 </table>

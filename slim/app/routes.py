@@ -1,6 +1,8 @@
 from flask import render_template, request, redirect, url_for, g
+import urllib
 
 from slimdb import slimdb_app
+import dataset
 
 def path_component(name):
     return urllib.quote_plus(name.strip())
@@ -18,7 +20,10 @@ def by_gene(gene_name=None):
         if gene_name:
             pcs = { "gene_name" : path_component(gene_name) }
             return redirect(url_for("by_gene", **pcs))
-    return render_template("gene.html", gene_name=gene_name, genes=[])
+    genes = []
+    if gene_name:
+        genes = dataset.gene.search(g.db, gene_name)
+    return render_template("gene.html", gene_name=gene_name, gene_cols=dataset.gene.cols, genes=genes)
 
 # Search and display data from the `pfam_domain` table.
 @slimdb_app.route("/domain", methods=["GET", "POST"])
