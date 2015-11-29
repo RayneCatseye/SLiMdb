@@ -28,6 +28,8 @@ cols = [
 
 def search(conn, pattern):
     cur = conn.cursor()
-    cur.execute("SELECT " + ",".join(cols) + ' FROM occresults WHERE pattern LIKE %s;', (like(pattern),))
+    term = like(pattern)
+    q = "SELECT " + ",".join(cols) + " FROM occresults WHERE pattern ILIKE %s ESCAPE '=';"
+    cur.execute(q, (term,))
     res = cur.fetchall()
     return map(lambda r: dict(zip(cols, list(r))), res)

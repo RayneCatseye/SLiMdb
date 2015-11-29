@@ -5,7 +5,7 @@ from slimdb import slimdb_app
 import dataset
 
 def path_component(name):
-    return urllib.quote_plus(name.strip())
+    return urllib.quote_plus(name)
 
 @slimdb_app.route("/")
 def index():
@@ -22,6 +22,7 @@ def by_gene(gene_name=None):
             return redirect(url_for("by_gene", **pcs))
     genes = []
     if gene_name:
+        gene_name = urllib.unquote_plus(gene_name)
         genes = dataset.gene.search(g.db, gene_name)
     return render_template("gene.html", gene_name=gene_name, gene_cols=dataset.gene.cols, genes=genes)
 
@@ -36,6 +37,7 @@ def by_domain(domain_name=None):
             return redirect(url_for("by_domain", **pcs))
     domains = []
     if domain_name:
+        domain_name = urllib.unquote_plus(domain_name)
         domains = dataset.domain.search(g.db, domain_name)
     return render_template("domain.html", domain_name=domain_name, domain_cols=dataset.domain.cols, domains=domains)
 
@@ -50,6 +52,7 @@ def by_pattern(pattern=None):
             return redirect(url_for("by_pattern", **pcs))
     patterns = []
     if pattern:
+        pattern = urllib.unquote_plus(pattern)
         patterns = dataset.pattern.search(g.db, pattern)
     return render_template("pattern.html", pattern=pattern, pattern_cols=dataset.pattern.cols, patterns=patterns)
 
