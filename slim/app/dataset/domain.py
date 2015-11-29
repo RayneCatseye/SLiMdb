@@ -54,6 +54,6 @@ cols = [
 
 def search(conn, domain_name):
     cur = conn.cursor()
-    cur.execute("SELECT " + ",".join(cols) + ' FROM pfam_domain WHERE dataset ILIKE %s;', (like(domain_name),))
+    cur.execute("SELECT " + ",".join(cols) + " FROM pfam_domain WHERE dataset ILIKE %s ESCAPE '=';", (like(domain_name),))
     res = cur.fetchall()
     return map(lambda r: dict(zip(cols, list(r))), res)
